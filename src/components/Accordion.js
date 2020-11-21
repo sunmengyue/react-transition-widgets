@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Accordion = ({ items }) => {
   const [index, useIndex] = useState([0]);
   const list = items.map((item) => (
-    <div key={item.title}>
+    <React.Fragment key={item.title}>
       <div className="title active ">
         <i className="dropdown icon"></i>
         {item.title}
@@ -11,7 +11,7 @@ const Accordion = ({ items }) => {
       <div className="content active">
         <p className="transition">{item.content}</p>
       </div>
-    </div>
+    </React.Fragment>
   ));
   return <div className="ui styled accordion">{list}</div>;
 };
