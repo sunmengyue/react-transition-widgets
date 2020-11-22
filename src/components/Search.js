@@ -4,7 +4,6 @@ import axios from 'axios';
 const Search = () => {
   const [term, setTerm] = useState('programming');
   const [results, setResults] = useState([]);
-  console.log(results);
   useEffect(() => {
     const search = async () => {
       const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
@@ -26,7 +25,7 @@ const Search = () => {
       <div key={result.pageid} className="item">
         <div className="content">
           <div className="header">{result.title}</div>
-          <div className="description">{result.snippet}</div>
+          <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>
     );
